@@ -378,6 +378,7 @@ class _ChatRoomState extends State<ChatRoom> {
       });
 
       print(",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,${appController.combinedId.value}");
+      //
        sendNotification(msgText: "${textController.text}", userName: "${sender['UserName']}", token:"${receiver['token']}" );
       textController.text = '';
       setState(() {});
