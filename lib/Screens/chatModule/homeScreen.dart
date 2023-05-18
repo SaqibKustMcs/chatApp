@@ -135,7 +135,11 @@ class _HomeScreenState extends State<HomeScreen> {
 
                           print(timestamp);
                           print(data[index]['messageContent']);
-                          return UserHomeWidget(rName: data[index]['reciverName'],rId: data[index]['receiverId'],msgText: data[index]['messageContent'],timestamp:"${formatter}",rImage: data[index]['reciverImage'] ,sId:data[index]['senderId'] ,chatid:data[index]['chatId'] ,rToken: "",sToken:"",sImage: data[index]['senderImage'] ,sName:data[index]['senderName'] ,);
+                          return
+                            getUserID()==data[index]['senderId']?
+                          UserHomeWidget(rName: data[index]['reciverName'],rId: data[index]['receiverId'],msgText: data[index]['messageContent'],timestamp:"${formatter}",rImage: data[index]['reciverImage'] ,sId:data[index]['senderId'] ,chatid:data[index]['chatId'] ,rToken: "",sToken:"",sImage: data[index]['senderImage'] ,sName:data[index]['senderName'] ,)
+                            :UserHomeWidget(rName: data[index]['senderName'],rId: data[index]['senderId'],msgText: data[index]['messageContent'],timestamp:"${formatter}",rImage: data[index]['senderImage'] ,sId:data[index]['receiverId'] ,chatid:data[index]['chatId'] ,rToken: "",sToken:"",sImage: data[index]['reciverImage'] ,sName:data[index]['reciverName'] ,);
+
                         },
                       );
                     } else if (snapshot.hasError) {

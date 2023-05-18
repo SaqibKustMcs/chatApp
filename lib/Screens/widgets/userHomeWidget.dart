@@ -31,6 +31,11 @@ class UserHomeWidget extends StatefulWidget {
 class _UserHomeWidgetState extends State<UserHomeWidget> {
   @override
   Widget build(BuildContext context) {
+    print(",,,,,,,,,,,,,,,,,,,,,widget");
+    print(widget.rName);
+    print(widget.rImage);
+    print(",,,,,,,,,,,,,,,,,,,,,widget");
+
 
 
     return InkWell(

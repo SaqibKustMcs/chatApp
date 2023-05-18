@@ -346,14 +346,14 @@ class _ChatRoomState extends State<ChatRoom> {
       });
       await recentChatIds1.doc(appController.combinedId.value).set({
 
-        'sToken':sender['token'],
-        'rToken':receiver['token'],
-        'senderId': getUserID(),
+        'sToken':receiver['token'],
+        'rToken':sender['token'],
+        'senderId':widget.rId,
         "senderName":receiver['UserName'],
         "senderImage":receiver['userImage'],
         "reciverName":sender['UserName'],
         'reciverImage':sender['userImage'],
-        'receiverId': widget.rId,
+        'receiverId':getUserID(),
         'messageContent': textController.text,
         'timestamp': Timestamp.now(),
         'chatId': appController.combinedId.value,
@@ -375,12 +375,10 @@ class _ChatRoomState extends State<ChatRoom> {
         'chatId': appController.combinedId.value,
         'docId': '${id}',
         'isRead':false,
-        // ,
       });
 
       print(",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,${appController.combinedId.value}");
-      //
-       sendNotification(msgText: "${textController.text}", userName: "${sender['UserName']}", token:"${receiver['token']}" );
+        sendNotification(msgText: "${textController.text}", userName: "${sender['UserName']}", token:"${receiver['token']}" );
       textController.text = '';
       setState(() {});
     });
@@ -440,14 +438,14 @@ class _ChatRoomState extends State<ChatRoom> {
         'isRead':false,
       });
       await recentChatIds1.doc(widget.chatId).set({
-        'sToken':sender['token'],
-        'rToken':receiver['token'],
-        'senderId': getUserID(),
+        'sToken':receiver['token'],
+        'rToken':sender['token'],
+        'senderId':widget.rId,
         "senderName":receiver['UserName'],
         "senderImage":receiver['userImage'],
         "reciverName":sender['UserName'],
         'reciverImage':sender['userImage'],
-        'receiverId': widget.rId,
+        'receiverId':getUserID(),
         'messageContent': textController.text,
         'timestamp': Timestamp.now(),
         'chatId': widget.chatId,
@@ -471,7 +469,7 @@ class _ChatRoomState extends State<ChatRoom> {
         'isRead':false,
       });
       print(",,,,,,,,,,notifi,,,,,,,,,,,,,,,,,,,,,,,,,,,${appController.combinedId.value}");
-        sendNotification(msgText: "${textController.text}", userName: "${sender['UserName']}",token: '${receiver['token']}');
+         sendNotification(msgText: "${textController.text}", userName: "${sender['UserName']}",token: '${receiver['token']}');
       textController.text = '';
       print("notifiii successs");
 
