@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'dart:ui';
 
 
@@ -15,6 +16,8 @@ class AppController extends GetxController{
  List<String> chatIdsList= [''].obs;
   var token=''.obs;
  Rx<String> combinedId="".obs ;
+ var showHideMice=false.obs;
+ // Rx<File>? _file="";
 
 
 

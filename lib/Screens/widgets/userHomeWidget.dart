@@ -9,6 +9,7 @@ class UserHomeWidget extends StatefulWidget {
   String? sImage;
   String? sId;
   String? sToken;
+  String? chatImage;
 
   String? rId ;
   String? rName;
@@ -21,7 +22,7 @@ class UserHomeWidget extends StatefulWidget {
   String msgText;
 
 
-   UserHomeWidget({Key? key,this.rId,this.rName,required this.msgText,this.timestamp,this.rImage,this.sId,required this.chatid,this.rToken, required this.sToken,this.sImage,this.sName,
+   UserHomeWidget({Key? key,this.rId,this.rName,required this.msgText,this.timestamp,this.rImage,this.sId,required this.chatid,this.rToken, required this.sToken,this.sImage,this.sName,this.chatImage
    }) : super(key: key);
 
   @override
@@ -31,10 +32,8 @@ class UserHomeWidget extends StatefulWidget {
 class _UserHomeWidgetState extends State<UserHomeWidget> {
   @override
   Widget build(BuildContext context) {
-    print(",,,,,,,,,,,,,,,,,,,,,widget");
-    print(widget.rName);
-    print(widget.rImage);
-    print(",,,,,,,,,,,,,,,,,,,,,widget");
+    print("...........image ${widget.chatImage}");
+
 
 
 
@@ -64,7 +63,7 @@ class _UserHomeWidgetState extends State<UserHomeWidget> {
                         color: Colors.orange.shade100,
                       image: DecorationImage(
                         fit: BoxFit.fill,
-                        image:widget.sId==getUserID()? NetworkImage("${widget.rImage}"):NetworkImage("${widget.rImage}")
+                        image: NetworkImage("${widget.rImage}")
                       )
                     ),
                   ),
@@ -77,7 +76,18 @@ class _UserHomeWidgetState extends State<UserHomeWidget> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text("${widget.rName}",style: GoogleFonts.poppins(fontSize: 16,fontWeight: FontWeight.w500,color: Colors.black),)
-                          ,Text("${widget.msgText}",maxLines: 2,overflow: TextOverflow.ellipsis,style: GoogleFonts.poppins(fontSize: 14,fontWeight: FontWeight.w300,color: Colors.black),)
+                          ,Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              widget.chatImage!=""?Padding(
+                                padding: const EdgeInsets.only(right: 3.0),
+                                child: Icon(Icons.image,color: Colors.grey,),
+                              ):SizedBox(width: 0.0,),
+
+                              Flexible(child: Text("️${widget.msgText}",maxLines: 2,overflow: TextOverflow.ellipsis,style: GoogleFonts.poppins(fontSize: 14,fontWeight: FontWeight.w300,color: Colors.black),)),
+                            ],
+                          )
 
                         ],
                       ),

@@ -21,7 +21,6 @@ class ChatServices {
 
       );
     } catch (e) {
-      print(e.toString());
     }
   }
 }
